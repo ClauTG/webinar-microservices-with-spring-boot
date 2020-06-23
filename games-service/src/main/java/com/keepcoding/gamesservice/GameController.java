@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class GameController {
 
     @GetMapping("/games")
-    public GameList getAllProducts() {
+    public GameList getAllGames() {
         return gameMockedList();
     }
 
@@ -28,7 +28,7 @@ public class GameController {
     }
 
     @GetMapping("games/category/{categoryId}")
-    public List<Game> getProductsByCategory(@PathVariable Long categoryId) {
+    public List<Game> getGamesByCategory(@PathVariable Long categoryId) {
         return gameMockedList()
                 .getGameList()
                 .stream()
