@@ -5,6 +5,7 @@ import java.util.List;
 
 public class GameList {
 
+    private int port;
     private List<Game> gameList;
 
     public GameList() {
@@ -20,5 +21,13 @@ public class GameList {
 
     public void setGameList(List<Game> gameList) {
         this.gameList = gameList;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }

@@ -1,5 +1,7 @@
 package com.keepcoding.gamesservice;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +14,8 @@ import java.util.stream.Collectors;
 @RestController
 public class GameController {
 
-    @GetMapping("/games")
+
+    @GetMapping(value = "/games", produces = "application/json")
     public GameList getAllProducts() {
         return gameMockedList();
     }
@@ -27,8 +30,9 @@ public class GameController {
                 .get();
     }
 
-    @GetMapping("games/category/{categoryId}")
+    @GetMapping(value = "games/category/{categoryId}", produces = "application/json")
     public List<Game> getProductsByCategory(@PathVariable Long categoryId) {
+
         return gameMockedList()
                 .getGameList()
                 .stream()
@@ -39,6 +43,7 @@ public class GameController {
 
     private GameList gameMockedList() {
         var result = new GameList();
+
         result.setGameList(Arrays.asList(
                 new Game(1L, "God Of War", "Muerte y destrucción", BigDecimal.valueOf(100L), 1L),
                 new Game(2L, "Final Fantasy VII: Remake", "Nostalgia japonesa", BigDecimal.valueOf(30L), 2L),
