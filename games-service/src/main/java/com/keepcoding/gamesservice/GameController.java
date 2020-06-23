@@ -30,7 +30,7 @@ public class GameController {
                 .get();
     }
 
-    @GetMapping(value = "games/category/{categoryId}", produces = "application/json")
+    @GetMapping(value = "/games/category/{categoryId}", produces = "application/json")
     public List<Game> getProductsByCategory(@PathVariable Long categoryId) {
 
         return gameMockedList()
