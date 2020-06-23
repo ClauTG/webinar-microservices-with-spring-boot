@@ -29,4 +29,6 @@ public class CatalogCategory {
     public void setGamesList(List<Game> gamesList) {
         this.gamesList = gamesList;
     }
+
 }
+

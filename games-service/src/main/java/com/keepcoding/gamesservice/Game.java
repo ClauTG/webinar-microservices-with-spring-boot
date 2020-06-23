@@ -1,5 +1,7 @@
 package com.keepcoding.gamesservice;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.math.BigDecimal;
 
 public class Game {

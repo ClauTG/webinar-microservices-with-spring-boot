@@ -3,6 +3,7 @@ package com.keepcoding.catalog;
 import java.util.List;
 
 public class Catalog {
+    private int categoriesPort;
     private List<Category> categoriesData;
     private List<CatalogCategory> categories;
 
@@ -28,5 +29,13 @@ public class Catalog {
 
     public void setCategories(List<CatalogCategory> categories) {
         this.categories = categories;
+    }
+
+    public int getCategoriesPort() {
+        return categoriesPort;
+    }
+
+    public void setCategoriesPort(int categoriesPort) {
+        this.categoriesPort = categoriesPort;
     }
 }

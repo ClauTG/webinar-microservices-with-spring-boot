@@ -1,5 +1,6 @@
 package com.keepcoding.catalog;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -11,17 +12,21 @@ import java.util.List;
 public class CatalogController {
 
 
-    @GetMapping("/catalog")
+    @Autowired
+    private RestTemplate restTemplate;
+
+
+    @GetMapping(value = "/catalog", produces = "application/json")
     public Catalog getCatalog() {
-        var restTemplate = new RestTemplate();
-        CategoryList categoryList = restTemplate.getForObject("http://localhost:8000/categories", CategoryList.class);
+        CategoryList categoryList = restTemplate.getForObject("http://category-service/categories", CategoryList.class);
 
         Catalog catalog = new Catalog();
+        catalog.setCategoriesPort(categoryList.getPort());
         catalog.setCategoriesData(categoryList.getCategoryList());
 
         catalog.setCategories(new ArrayList<>());
         categoryList.getCategoryList().forEach(category -> {
-            List<Game> games = restTemplate.getForObject("http://localhost:9090/games/category/" + category.getId(), List.class);
+            List<Game> games = restTemplate.getForObject("http://games-service/games/category/" + category.getId(), List.class);
             catalog.getCategories().add(new CatalogCategory(category.getName(), games));
         });
         return catalog;
