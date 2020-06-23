@@ -3,30 +3,30 @@ package com.keepcoding.catalog;
 import java.util.List;
 
 public class CatalogCategory {
-    private Long id;
-    private List<Product> productList;
+    private String category;
+    private List<Game> gamesList;
 
     public CatalogCategory() {
     }
 
-    public CatalogCategory(Long id, List<Product> productList) {
-        this.id = id;
-        this.productList = productList;
+    public CatalogCategory(String category, List<Game> gamesList) {
+        this.category = category;
+        this.gamesList = gamesList;
     }
 
-    public Long getId() {
-        return id;
+    public String getCategory() {
+        return category;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public List<Game> getGamesList() {
+        return gamesList;
     }
 
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public void setGamesList(List<Game> gamesList) {
+        this.gamesList = gamesList;
     }
 }

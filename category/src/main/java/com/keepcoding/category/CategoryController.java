@@ -11,7 +11,9 @@ public class CategoryController {
     @GetMapping("/categories")
     public CategoryList getCategories() {
         var result = new CategoryList();
-        result.setCategoryList(Arrays.asList(new Category(1L, "ropa"), new Category(2L, "comida")));
+        result.setCategoryList(Arrays.asList(new Category(1L, "Accion/Aventura"),
+                new Category(2L, "JRPG"),
+                new Category(3L, "Shooter")));
         return result;
     }
 }
